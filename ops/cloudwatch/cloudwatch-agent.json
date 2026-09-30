@@ -1,0 +1,35 @@
+{
+  "agent": {
+    "metrics_collection_interval": 60,
+    "run_as_user": "root"
+  },
+  "logs": {
+    "logs_collected": {
+      "files": {
+        "collect_list": [
+          {
+            "file_path": "/var/log/devconnect/app.log",
+            "log_group_name": "/devconnect/application",
+            "log_stream_name": "{instance_id}/app",
+            "retention_in_days": 30,
+            "timezone": "UTC"
+          }
+        ]
+      }
+    }
+  },
+  "metrics": {
+    "namespace": "DevConnect/EC2",
+    "metrics_collected": {
+      "mem": {
+        "measurement": ["mem_used_percent"],
+        "metrics_collection_interval": 60
+      },
+      "disk": {
+        "measurement": ["used_percent"],
+        "resources": ["*"],
+        "metrics_collection_interval": 60
+      }
+    }
+  }
+}

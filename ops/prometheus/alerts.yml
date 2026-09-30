@@ -1,0 +1,26 @@
+groups:
+  - name: devconnect-backend
+    rules:
+      - alert: DevConnectHigh5xxRate
+        expr: sum(rate(devconnect_http_requests_total{status_code=~"5.."}[5m])) / sum(rate(devconnect_http_requests_total[5m])) > 0.05
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: DevConnect backend 5xx rate is high
+
+      - alert: DevConnectHighP95Latency
+        expr: histogram_quantile(0.95, sum by (le) (rate(devconnect_http_request_duration_seconds_bucket[5m]))) > 1
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: DevConnect backend p95 latency is above 1 second
+
+      - alert: DevConnectDatabaseErrors
+        expr: increase(devconnect_db_errors_total[5m]) > 5
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: DevConnect is reporting repeated database errors
