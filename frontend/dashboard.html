@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DevConnect | Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="app-bg">
+  <header class="topbar">
+    <a class="logo" href="dashboard.html"><span>DC</span> DevConnect</a>
+    <div class="topbar-actions">
+      <span id="user-label" class="user-label"></span>
+      <button id="logout" class="ghost-btn">Sign out</button>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">PRIVATE WORKSPACE</span>
+        <h1>Your developer command center.</h1>
+        <p>Capture ideas, architecture decisions, troubleshooting notes and production learnings.</p>
+      </div>
+      <div class="health-pill"><span></span> API connected</div>
+    </section>
+
+    <section class="grid">
+      <div class="panel composer">
+        <div class="panel-heading">
+          <div>
+            <span class="panel-kicker">NEW NOTE</span>
+            <h2>Create a note</h2>
+          </div>
+        </div>
+        <form id="note-form">
+          <label for="title">Title</label>
+          <input id="title" placeholder="e.g. ALB 502 troubleshooting" maxlength="200" required>
+          <label for="content">Content</label>
+          <textarea id="content" rows="10" placeholder="Capture the problem, evidence, root cause and fix..." required></textarea>
+          <button class="primary-btn" type="submit">Save note <span>→</span></button>
+        </form>
+      </div>
+
+      <div class="panel notes-panel">
+        <div class="panel-heading">
+          <div>
+            <span class="panel-kicker">KNOWLEDGE BASE</span>
+            <h2>Your notes</h2>
+          </div>
+          <span id="note-count" class="count-badge">0</span>
+        </div>
+        <div id="notes" class="notes-list"></div>
+        <div id="empty" class="empty-state">No notes yet. Create your first one.</div>
+      </div>
+    </section>
+  </main>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
