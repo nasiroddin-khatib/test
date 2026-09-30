@@ -1,0 +1,6 @@
+# Example rsyslog/file permission notes are intentionally kept outside the app.
+# The Node.js app writes structured JSON logs to:
+# /var/log/devconnect/app.log
+#
+# Make sure the service user can write that file and that the CloudWatch Agent
+# can read it.

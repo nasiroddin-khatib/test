@@ -1,0 +1,13 @@
+{
+  "title": "DevConnect Backend",
+  "schemaVersion": 39,
+  "refresh": "15s",
+  "panels": [
+    {"type":"timeseries","title":"Request Rate","targets":[{"expr":"sum(rate(devconnect_http_requests_total[5m]))","legendFormat":"req/s"}]},
+    {"type":"timeseries","title":"P95 Latency","targets":[{"expr":"histogram_quantile(0.95, sum by (le) (rate(devconnect_http_request_duration_seconds_bucket[5m])))","legendFormat":"p95 seconds"}]},
+    {"type":"timeseries","title":"5xx Responses","targets":[{"expr":"sum(rate(devconnect_http_requests_total{status_code=~"5.."}[5m]))","legendFormat":"5xx/s"}]},
+    {"type":"timeseries","title":"Authentication Failures","targets":[{"expr":"sum(rate(devconnect_auth_failures_total[5m])) by (reason)","legendFormat":"{{reason}}"}]},
+    {"type":"timeseries","title":"Database Errors","targets":[{"expr":"sum(rate(devconnect_db_errors_total[5m]))","legendFormat":"db errors/s"}]},
+    {"type":"timeseries","title":"Process Memory","targets":[{"expr":"devconnect_process_resident_memory_bytes","legendFormat":"RSS bytes"}]}
+  ]
+}

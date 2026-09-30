@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DevConnect | Secure Developer Notes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="auth-shell">
+    <section class="brand-panel">
+      <div class="brand-mark">DC</div>
+      <span class="eyebrow">DEVCONNECT</span>
+      <h1>Build. Capture. Connect.</h1>
+      <p>A polished, secure workspace for keeping your development notes organized and accessible.</p>
+      <div class="feature-list">
+        <span>✓ Secure authentication</span>
+        <span>✓ Private notes per user</span>
+        <span>✓ Production-ready observability</span>
+      </div>
+    </section>
+
+    <section class="auth-card">
+      <div class="tabs">
+        <button class="tab active" data-tab="login">Sign in</button>
+        <button class="tab" data-tab="register">Create account</button>
+      </div>
+
+      <div id="status" class="status" role="status"></div>
+
+      <form id="login-form" class="auth-form">
+        <div>
+          <label for="loginEmail">Email</label>
+          <input id="loginEmail" type="email" autocomplete="email" placeholder="you@example.com" required>
+        </div>
+        <div>
+          <label for="loginPassword">Password</label>
+          <input id="loginPassword" type="password" autocomplete="current-password" placeholder="Your password" required>
+        </div>
+        <button class="primary-btn" type="submit">Sign in <span>→</span></button>
+      </form>
+
+      <form id="register-form" class="auth-form hidden">
+        <div>
+          <label for="name">Full name</label>
+          <input id="name" type="text" autocomplete="name" placeholder="Your name" required>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input id="password" type="password" autocomplete="new-password" placeholder="At least 8 characters" minlength="8" required>
+        </div>
+        <button class="primary-btn" type="submit">Create account <span>→</span></button>
+      </form>
+
+      <p class="fine-print">Your credentials are transmitted to the configured DevConnect API. Never expose production secrets in frontend code.</p>
+    </section>
+  </main>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
